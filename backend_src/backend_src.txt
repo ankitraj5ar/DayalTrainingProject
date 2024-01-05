@@ -1,0 +1,2 @@
+# Backend : in Database interaction in PHP
+* backend_src : This folder contains all PHP files and database queries

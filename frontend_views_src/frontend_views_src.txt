@@ -1,0 +1,2 @@
+# Frontend : UI design in HTML, CSS and interactions via API
+* frontend_views_src : This folder contains all HTML, CSS, JS files

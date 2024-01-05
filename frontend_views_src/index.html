@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Student Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Student Registration</h1>
+      </header>
+      <div class="layout">
+          <div class="pdetails active_tab ">
+            <i class="fa-regular fa-circle pformnot tab_desing"></i>
+            <i class="fa-regular fa-circle-check pformyes inactive_tab  tab_desing"></i>
+            <p>Personal Details</p>
+          </div>
+          <div class="adetails">
+            <i class="fa-regular aformnot fa-circle tab_desing"></i>
+            <i class="fa-regular fa-circle-check aformyes inactive_tab tab_desing"></i>
+            <p>Address Details</p>
+          </div>
+          <div class="odetails" >
+            <i class="fa-regular fa-circle oformnot tab_desing"></i>
+            <i class="fa-regular fa-circle-check oformyes inactive_tab tab_desing"></i>
+            <p>Other Details</p>
+          </div>
+      </div>
+      <form id="student_form" onsubmit="return false;">
+        <div class="pdetails_form  ">
+          <h3>Personal Details</h3>
+          <div class="pdetails_wrapper">
+            <div class="pwrapper_child1">
+              <label for="fname">First Name<span class="imp">*</span></label><br />
+              <input class="full_width" type="text" name="fname" id="fname" required value=""/>
+            </div>
+            <div class="pwrapper_child2">
+              <label for="lname">Last Name</label><br />
+              <input class="full_width" type="text" name="lname" id="lname" />
+            </div>
+            <div class="pwrapper_child3">
+              <label for="email">Email Id<span class="imp">*</span><br />
+                <span class="icons">
+                  <i class="fa-solid fa-envelope icon" style="color: #000000;"></i>
+                  <input class="full_width" type="email" name="email" id="email" required />
+               </span>
+             </label>
+            </div> 
+            <div class="pwrapper_child4">
+              <label for="ano">Aadhar Number<span class="imp">*</span></label><br />
+              <input class="full_width" type="text" name="ano" id="ano" required />
+            </div>
+            <div class="pwrapper_child5">
+              <div class="pwrapper_child5_gchild1">
+                <label for="date">DOB<span class="imp">*</span></label><br />
+                  <input class="" type="date" name="date" id="date" required />
+              </div>
+              <div class="pwrapper_child5_gchild2">
+                <label for="phone">Mobile<span class="imp">*</span><br />
+                  <span class="icons">
+                    <i class="fa-solid fa-phone icon" style="color: #07090e;"></i>
+                   <input class="" type="tel" name="phone" id="phone" required />
+                  </span>
+              </label>
+              </div>
+            </div>
+            <div class="pwrapper_child6">
+              <legend>Gender<span class="imp">*</span></legend>
+              <div class="pwrapper_child6_radio">
+                <div class="p_radio_child6">
+                  <input
+                    type="radio"
+                    id="Male"
+                    name="gender"
+                    value="Male"
+                    checked
+                  />
+                  <label class="radio_label" for="Male">Male</label>
+                </div>
+                <div class="p_radio_child6">
+                  <input
+                    type="radio"
+                    id="Female"
+                    name="gender"
+                    value="Female"
+                  />
+                  <label class="radio_label" for="Female">Female</label>
+                </div>
+                <div class="p_radio_child6">
+                  <input
+                    type="radio"
+                    id="Others"
+                    name="gender"
+                    value="Others"
+                  />
+                  <label class="radio_label" for="Others">Others</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pdetails_photo_upload">
+            <legend>Upload Photo<span class="imp">*</span></legend>
+            <div class="photo_upload_opnion">
+              <div class="addcursor" >
+                <input class="addcursor" type="radio" id="yes" name="photo_upload" value="yes" onclick="displayUploadButton()" />
+                <label class="radio_label addcursor" for="yes" onclick="displayUploadButton()">Yes</label>
+              </div>
+              <div class="addcursor">
+                <input class="addcursor" type="radio" id="no" name="photo_upload" value="no" onclick="hideUploadButton()" checked/>
+                <label class="radio_label addcursor" for="no" onclick="hideUploadButton()" >No</label>
+              </div>
+            </div>
+            <div class="photo_upload hide">
+              <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/png, image/jpeg, image/jpg"
+              />
+            </div>
+          </div>
+          <div class="form_navigation">
+            <div class="guideline">
+              <p>
+                In Order to process your registration, we ask you to provide the
+                following information. Please note that all the fields marked
+                with (*) are required.
+              </p>
+            </div>
+            <div class="pbutton" onclick="pnext();">
+                <input type="button"  value="Next"/>
+                <i class="fa-solid fa-caret-right right_button"></i>
+            </div>
+          </div>
+        </div>
+        <div class="adetails_form  inactive">
+          <h3>Address Details</h3>
+          <div class="adetails_wrapper1">
+            <div class="awrapper_child1">
+              <div class="awrapper_child1_gchild1">
+                <label for="country">Country<span class="imp">*</span></label><br />
+                <select class="full_width" id="country" name="country" required>
+                  <option value=""></option>
+                  <option value="India">India</option>
+                  <option value="America">America</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="South Korea">South Korea</option>
+                  <option value="China">China</option>
+                  <option value="Australia">Australia</option>
+                </select>
+              </div>
+              <div class="awrapper_child1_gchild2">
+                <label for="state">State<span class="imp">*</span></label><br />
+                <select class="full_width" id="state" name="state" required>
+                  <option value=""></option>
+                  <option value="bihar">Bihar</option>
+                  <option value="uttar pradesh">Uttar Pradesh</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="maharastra">Maharastra</option>
+                  <option value="karnataka">Karnataka</option>
+                  <option value="arunachal pradesh">Arunachal Pradesh</option>
+                </select>
+              </div>
+              <div class="awrapper_child1_gchild3">
+                <label for="city">City<span class="imp">*</span></label><br />
+                <select class="full_width" id="city" name="city" required>
+                  <option value=""></option>
+                  <option value="munger">Munger</option>
+                  <option value="banglore">Banglore</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="goa">Goa</option>
+                  <option value="pune">Pune</option>
+                  <option value="gurgaon">Gurgaon</option>
+                  <option value="meerut">Meerut</option>
+                </select>
+              </div>
+            </div>
+            <div class="awrapper_child2">
+              <div class="awrapper_child2_gchild1">
+                <label for="street">Street<span class="imp">*</span></label><br />
+                <!--blank by default-->
+                <textarea class="full_width" id="street" name="street" value="" required> </textarea>
+              </div>
+              <div class="awrapper_child2_gchild2">
+                <div class="awrapper_gchild2_child1">
+                  <label for="landmark">Landmark<span class="imp">*</span></label><br />
+                  <input class="full_width" type="text" name="landmark" id="landmark" required/>
+                </div>
+                <div class="awrapper_gchild_child2">
+                  <label for="areacode">Pincode<span class="imp">*</span></label><br />
+                  <input class="full_width" type="number" name="areacode" id="areacode" required />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form_navigation">
+            <div class="guideline">
+              <p>
+                In Order to process your registration, we ask you to provide the
+                following information. Please note that all the fields marked
+                with (*) are required.
+              </p>
+            </div>
+            <div class="abuttons">
+              <div class="aleft" onclick="aback()">
+                <i class="fa-solid fa-caret-left left_button"></i>
+                <input type="button" value="Back"/>
+              </div>
+              <div class="aright"  onclick="anext()">
+                <input
+                  type="button"
+                  value="Next"
+                />
+                <i class="fa-solid fa-caret-right right_button"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="odetails_form inactive">
+          <h3>Other Details</h3>
+          <div class="odetails_wrapper1">
+            <div class="owrapper_child1">
+              <label for="username">Username<span class="imp">*</span></label><br />
+              <input class="full_width" type="text" name="username" id="username" required/>
+            </div>
+            <div class="owrapper_child2">
+              <label for="password">Password<span class="imp">*</span></label><br />
+              <input class="full_width" type="text" name="password" id="password" required />
+            </div>
+          </div>
+          <div class="odetails_wrapper2">
+            <legend>Hobbies<span class="imp">*</span></legend>
+            <div class="owrapper2_child">
+              <div class="owrapper2_child_item">
+              <input onclick="getValue()" class="checkbox" type="checkbox" id="cooking" name="hobbies" value="cooking" required/>
+                <label class="radio_label" for="cooking">Cooking</label>
+              </div>
+              <div class="owrapper2_child_item">
+                <input
+                onclick="getValue()"
+                class="checkbox"
+                  type="checkbox"
+                  id="travelling"
+                  name="hobbies"
+                  value="travelling"
+                  required
+                />
+                <label class="radio_label"  for="travelling">Travelling</label>
+              </div>
+              <div class="owrapper2_child_item">
+                <input
+                onclick="getValue()"
+                class="checkbox"
+                  type="checkbox"
+                  id="palnting"
+                  name="hobbies"
+                  value="palnting"
+                />
+                <label class="radio_label"  for="palnting">Palnting</label>
+              </div>
+
+              <div class="owrapper2_child_item">
+                <input
+                onclick="getValue()"
+                class="checkbox"
+                  type="checkbox"
+                  id="sports"
+                  name="hobbies"
+                  value="sports"
+                />
+                <label class="radio_label"  for="sports">Sports</label>
+              </div>
+              <div class="owrapper2_child_item">
+                <input
+                onclick="getValue()"
+                class="checkbox"
+                  type="checkbox"
+                  id="swimming"
+                  name="hobbies"
+                  value="swimming"
+                  
+                />
+                <label class="radio_label"  for="swimming">Swimming</label>
+              </div>
+            </div>
+          </div>
+          <div class="form_navigation">
+            <div class="guideline">
+              <p>
+                In Order to process your registration, we ask you to provide the
+                following information. Please note that all the fields marked
+                with (*) are required.
+              </p>
+            </div>
+            <div class="obuttons">
+              <div class="aleft" onclick="oback()">
+                <i class="fa-solid fa-caret-left left_button"></i>
+                <input type="button" value="Back"/>
+              </div>
+              <div class="oright" onclick="ovalidations()">
+                <input type="submit"  value="Submit"/>
+                <i class="fa-solid fa-check right_button submit_button"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="script/script.js"></script>
+</html>
